@@ -1,11 +1,11 @@
-use std::{
-    collections::{HashMap, hash_map},
+use alloc::sync::Arc;
+use core::{
     convert::TryFrom,
     fmt, mem,
     net::{IpAddr, SocketAddr},
     ops::{Index, IndexMut},
-    sync::Arc,
 };
+use std::collections::{HashMap, hash_map};
 
 use bytes::{Buf, BufMut, Bytes, BytesMut};
 use rand::{Rng, RngExt, SeedableRng, rngs::StdRng};

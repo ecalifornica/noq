@@ -1,4 +1,5 @@
-use std::{cmp::Ordering, io, ops::Range, str};
+use core::{cmp::Ordering, ops::Range, str};
+use std::io;
 
 use bytes::{Buf, BufMut, Bytes, BytesMut};
 use thiserror::Error;

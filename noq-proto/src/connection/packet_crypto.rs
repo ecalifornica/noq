@@ -1,5 +1,7 @@
-use std::mem;
-use std::ops::{Index, IndexMut};
+use core::{
+    mem,
+    ops::{Index, IndexMut},
+};
 
 use tracing::{debug, trace};
 

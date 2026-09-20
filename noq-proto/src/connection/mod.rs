@@ -1,12 +1,15 @@
-use std::{
-    cmp,
+use alloc::{
     collections::{BTreeMap, VecDeque, btree_map},
-    convert::TryFrom,
-    fmt, io, mem,
-    net::SocketAddr,
-    num::{NonZeroU32, NonZeroUsize},
     sync::Arc,
 };
+use core::{
+    cmp,
+    convert::TryFrom,
+    fmt, mem,
+    net::SocketAddr,
+    num::{NonZeroU32, NonZeroUsize},
+};
+use std::io;
 
 use bytes::{Bytes, BytesMut};
 use frame::StreamMetaVec;

@@ -1,4 +1,5 @@
-use std::{collections::VecDeque, ops::Range};
+use alloc::collections::VecDeque;
+use core::ops::Range;
 
 use bytes::{Buf, BufMut, Bytes, BytesMut};
 
@@ -131,7 +132,7 @@ impl SendBufferData {
         self.segments
             .iter()
             .map(|x| x.as_ref())
-            .chain(std::iter::once(self.last_segment.as_ref()))
+            .chain(core::iter::once(self.last_segment.as_ref()))
     }
 
     /// Returns data which is associated with a range
@@ -477,7 +478,7 @@ mod tests {
 
         fn same(a: &[u8], b: &[u8]) -> bool {
             // surprisingly, eq also checks the fat pointer metadata aka length
-            std::ptr::eq(a.as_ptr(), b.as_ptr())
+            core::ptr::eq(a.as_ptr(), b.as_ptr())
         }
 
         let mut buf = SendBuffer::new();
@@ -725,7 +726,7 @@ pub mod send_buffer_benches {
             b.iter(|| {
                 // Get from end (very slow - scans through all 1000 segments)
                 tgt.clear();
-                buf.get_into(BYTES - PACKET_SIZE..BYTES, std::hint::black_box(&mut tgt));
+                buf.get_into(BYTES - PACKET_SIZE..BYTES, core::hint::black_box(&mut tgt));
             });
         });
     }
@@ -752,7 +753,7 @@ pub mod send_buffer_benches {
                 tgt.clear();
                 let mut range = BYTES - PACKET_SIZE..BYTES;
                 while range.start < range.end {
-                    let slice = std::hint::black_box(buf.get(range.clone()));
+                    let slice = core::hint::black_box(buf.get(range.clone()));
                     range.start += slice.len() as u64;
                     tgt.extend_from_slice(slice);
                 }

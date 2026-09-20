@@ -1,4 +1,4 @@
-use std::num::NonZeroUsize;
+use core::num::NonZeroUsize;
 
 use bytes::BufMut;
 use tracing::trace;

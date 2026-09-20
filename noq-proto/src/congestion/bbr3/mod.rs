@@ -1,8 +1,8 @@
 mod max_filter;
 
-use std::any::Any;
-use std::collections::VecDeque;
-use std::sync::Arc;
+use alloc::collections::VecDeque;
+use alloc::sync::Arc;
+use core::any::Any;
 
 use rand::{RngExt, SeedableRng};
 use rand_pcg::Pcg32;
@@ -2051,8 +2051,8 @@ impl ControllerFactory for Bbr3Config {
 #[cfg(test)]
 mod test {
     use super::*;
-    use std::cell::Cell;
-    use std::ops::ControlFlow;
+    use core::cell::Cell;
+    use core::ops::ControlFlow;
 
     /// PROBE_UP undo snapshot taken before a (possibly spurious) loss:
     /// (state, bw_shortterm, inflight_shortterm, inflight_longterm).

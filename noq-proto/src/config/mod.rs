@@ -1,8 +1,8 @@
-use std::{
+use alloc::sync::Arc;
+use core::{
     fmt,
     net::{SocketAddrV4, SocketAddrV6},
     num::TryFromIntError,
-    sync::Arc,
 };
 
 #[cfg(all(feature = "rustls", any(feature = "aws-lc-rs", feature = "ring")))]

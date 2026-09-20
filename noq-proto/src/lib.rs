@@ -18,11 +18,13 @@
 #![warn(unreachable_pub)]
 #![warn(clippy::use_self)]
 
-use std::{
+use core::{
     fmt,
     net::{IpAddr, SocketAddr},
     ops,
 };
+
+extern crate alloc;
 
 mod cid_queue;
 pub mod coding;
@@ -111,10 +113,11 @@ pub use token_memory_cache::TokenMemoryCache;
 pub mod n0_nat_traversal;
 
 // Deal with time
+pub(crate) use core::time::Duration;
 #[cfg(not(all(target_family = "wasm", target_os = "unknown")))]
-pub(crate) use std::time::{Duration, Instant, SystemTime, UNIX_EPOCH};
+pub(crate) use std::time::{Instant, SystemTime, UNIX_EPOCH};
 #[cfg(all(target_family = "wasm", target_os = "unknown"))]
-pub(crate) use web_time::{Duration, Instant, SystemTime, UNIX_EPOCH};
+pub(crate) use web_time::{Instant, SystemTime, UNIX_EPOCH};
 
 #[cfg(feature = "bench")]
 pub mod bench_exports {

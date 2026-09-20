@@ -182,7 +182,7 @@ impl<'a> BytesSource<'a> for BytesArray<'a> {
             let chunk = &mut self.chunks[self.consumed];
 
             if chunk.len() <= limit {
-                let chunk = std::mem::take(chunk);
+                let chunk = core::mem::take(chunk);
                 self.consumed += 1;
                 chunks_consumed += 1;
                 if chunk.is_empty() {

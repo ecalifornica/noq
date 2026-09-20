@@ -1,8 +1,5 @@
-use std::{
-    cmp::Ordering,
-    collections::{BinaryHeap, binary_heap::PeekMut},
-    mem,
-};
+use alloc::collections::{BinaryHeap, binary_heap::PeekMut};
+use core::{cmp::Ordering, mem};
 
 use bytes::{Buf, Bytes, BytesMut};
 

@@ -1,7 +1,6 @@
-use std::{
-    cmp,
-    collections::{BTreeMap, BTreeSet, VecDeque},
-    mem,
+use alloc::collections::{BTreeMap, BTreeSet, VecDeque};
+use core::{
+    cmp, mem,
     ops::{Bound, Index, IndexMut},
 };
 
@@ -389,7 +388,7 @@ impl PacketNumberSpace {
     }
 
     /// Checks whether a skipped packet number was ACKed.
-    pub(super) fn check_ack(&self, range: std::ops::Range<u64>) -> Result<(), TransportError> {
+    pub(super) fn check_ack(&self, range: core::ops::Range<u64>) -> Result<(), TransportError> {
         if let Some(ref filter) = self.pn_filter
             && filter
                 .prev_skipped_packet_number
@@ -651,7 +650,7 @@ impl Retransmits {
     }
 }
 
-impl ::std::ops::BitOrAssign for Retransmits {
+impl ::core::ops::BitOrAssign for Retransmits {
     fn bitor_assign(&mut self, rhs: Self) {
         let Self {
             max_data,
@@ -705,7 +704,7 @@ impl ::std::ops::BitOrAssign for Retransmits {
     }
 }
 
-impl ::std::ops::BitOrAssign<ThinRetransmits> for Retransmits {
+impl ::core::ops::BitOrAssign<ThinRetransmits> for Retransmits {
     fn bitor_assign(&mut self, rhs: ThinRetransmits) {
         let ThinRetransmits { retransmits } = rhs;
         if let Some(retransmits) = retransmits {
@@ -714,7 +713,7 @@ impl ::std::ops::BitOrAssign<ThinRetransmits> for Retransmits {
     }
 }
 
-impl ::std::iter::FromIterator<Self> for Retransmits {
+impl ::core::iter::FromIterator<Self> for Retransmits {
     fn from_iter<T>(iter: T) -> Self
     where
         T: IntoIterator<Item = Self>,
@@ -1065,7 +1064,7 @@ impl SendableFrames {
     }
 }
 
-impl ::std::ops::BitOrAssign for SendableFrames {
+impl ::core::ops::BitOrAssign for SendableFrames {
     fn bitor_assign(&mut self, rhs: Self) {
         let Self {
             acks,

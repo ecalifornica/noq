@@ -1,10 +1,9 @@
-use std::{
-    collections::HashSet,
+use core::{
     f64::consts::LN_2,
     hash::{BuildHasher, Hasher},
     mem::{size_of, take},
-    sync::Mutex,
 };
+use std::{collections::HashSet, sync::Mutex};
 
 use fastbloom::BloomFilter;
 use rustc_hash::FxBuildHasher;

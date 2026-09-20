@@ -1,6 +1,6 @@
 use super::SpaceKind;
 use crate::{Instant, MAX_UDP_PAYLOAD, MtuDiscoveryConfig};
-use std::cmp;
+use core::cmp;
 use tracing::trace;
 
 /// Implements Datagram Packetization Layer Path Maximum Transmission Unit Discovery

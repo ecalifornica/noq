@@ -1,4 +1,6 @@
-use std::{any::Any, io, str, sync::Arc};
+use alloc::sync::Arc;
+use core::{any::Any, str};
+use std::io;
 
 use aes_gcm::{KeyInit, aead::AeadMutInPlace};
 use bytes::BytesMut;
@@ -428,8 +430,8 @@ pub struct NoInitialCipherSuite {
     specific: bool,
 }
 
-impl std::fmt::Display for NoInitialCipherSuite {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+impl core::fmt::Display for NoInitialCipherSuite {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.write_str(match self.specific {
             true => "invalid cipher suite specified",
             false => "no initial cipher suite found",
@@ -437,7 +439,7 @@ impl std::fmt::Display for NoInitialCipherSuite {
     }
 }
 
-impl std::error::Error for NoInitialCipherSuite {}
+impl core::error::Error for NoInitialCipherSuite {}
 
 /// A QUIC-compatible TLS server configuration
 ///

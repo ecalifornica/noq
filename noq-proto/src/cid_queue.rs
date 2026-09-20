@@ -1,4 +1,4 @@
-use std::{fmt::Debug, ops::Range};
+use core::{fmt::Debug, ops::Range};
 
 use crate::{ConnectionId, ResetToken, frame::NewConnectionId};
 
