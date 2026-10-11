@@ -1,4 +1,4 @@
-use alloc::sync::Arc;
+use alloc::{sync::Arc, vec, vec::Vec};
 use core::{
     net::{IpAddr, Ipv4Addr, SocketAddr},
     time::Duration,

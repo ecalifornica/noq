@@ -1,4 +1,6 @@
 use alloc::collections::VecDeque;
+#[cfg(test)]
+use alloc::vec::Vec;
 use core::ops::Range;
 
 use bytes::{Buf, BufMut, Bytes, BytesMut};
@@ -701,6 +703,8 @@ pub mod send_buffer_benches {
     //!
     //! These are defined here and re-exported via `bench_exports` in lib.rs,
     //! so we can access the private `SendBuffer` struct.
+    use alloc::{vec, vec::Vec};
+
     use bytes::Bytes;
     use criterion::Criterion;
 

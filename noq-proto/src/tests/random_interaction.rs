@@ -1,3 +1,4 @@
+use alloc::{vec, vec::Vec};
 use core::net::{Ipv4Addr, Ipv6Addr, SocketAddr, SocketAddrV4};
 
 use bytes::Bytes;

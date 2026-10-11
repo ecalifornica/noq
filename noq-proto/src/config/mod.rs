@@ -1,4 +1,4 @@
-use alloc::sync::Arc;
+use alloc::{boxed::Box, sync::Arc, vec::Vec};
 use core::{
     fmt,
     net::{SocketAddrV4, SocketAddrV6},

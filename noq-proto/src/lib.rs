@@ -12,6 +12,7 @@
 //! related `Connection`. `Connection` types contain the bulk of the protocol logic related to
 //! managing a single connection and all the related state (such as streams).
 
+#![no_std]
 #![cfg_attr(not(fuzzing), warn(missing_docs))]
 // Fixes welcome:
 #![allow(clippy::too_many_arguments)]
@@ -23,13 +24,17 @@
     clippy::std_instead_of_core
 )]
 
+extern crate alloc;
+// This `extern crate` plus the `#![no_std]` attribute changes the default prelude from
+// `std::prelude` to `core::prelude`. That forces one to _explicitly_ import everything that is in
+// `std::prelude` but not in `core::prelude`. The crate still links `std`.
+extern crate std;
+
 use core::{
     fmt,
     net::{IpAddr, SocketAddr},
     ops,
 };
-
-extern crate alloc;
 
 mod cid_queue;
 pub mod coding;
@@ -137,6 +142,9 @@ pub mod fuzzing {
     pub use crate::packet::PartialDecode;
     pub use crate::transport_parameters::TransportParameters;
     pub use bytes::{BufMut, BytesMut};
+
+    #[cfg(feature = "arbitrary")]
+    use alloc::vec::Vec;
 
     #[cfg(feature = "arbitrary")]
     use arbitrary::{Arbitrary, Result, Unstructured};

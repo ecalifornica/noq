@@ -253,6 +253,8 @@ const DEFAULT_EXPECTED_HITS: u64 = 1_000_000;
 
 #[cfg(test)]
 mod test {
+    use alloc::vec::Vec;
+
     use super::*;
     use rand::prelude::*;
     use rand_pcg::Pcg32;

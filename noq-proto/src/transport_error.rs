@@ -1,4 +1,4 @@
-use alloc::sync::Arc;
+use alloc::{string::String, sync::Arc};
 use core::fmt;
 
 use bytes::{Buf, BufMut};

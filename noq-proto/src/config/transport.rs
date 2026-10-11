@@ -1,4 +1,6 @@
 #[cfg(feature = "qlog")]
+use alloc::borrow::ToOwned;
+#[cfg(feature = "qlog")]
 use std::path::Path;
 use alloc::sync::Arc;
 use core::{

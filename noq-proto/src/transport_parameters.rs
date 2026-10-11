@@ -820,6 +820,7 @@ fn decode_cid(len: usize, value: &mut Option<ConnectionId>, r: &mut impl Buf) ->
 
 #[cfg(test)]
 mod test {
+    use alloc::{boxed::Box, vec, vec::Vec};
 
     use super::*;
 

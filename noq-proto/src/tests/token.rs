@@ -1,6 +1,6 @@
 //! Tests specifically for tokens
 
-use alloc::sync::Arc;
+use alloc::{boxed::Box, sync::Arc};
 use std::sync::Mutex;
 
 use assert_matches::assert_matches;

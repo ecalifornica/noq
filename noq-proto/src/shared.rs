@@ -1,3 +1,4 @@
+use alloc::vec::Vec;
 use core::{fmt, net::SocketAddr};
 
 use bytes::{Buf, BufMut, BytesMut};

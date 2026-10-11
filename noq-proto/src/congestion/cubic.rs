@@ -1,4 +1,4 @@
-use alloc::sync::Arc;
+use alloc::{boxed::Box, sync::Arc};
 use core::{any::Any, cmp};
 
 use super::{BASE_DATAGRAM_SIZE, Controller, ControllerFactory};

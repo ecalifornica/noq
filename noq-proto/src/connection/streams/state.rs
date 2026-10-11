@@ -1,4 +1,4 @@
-use alloc::collections::VecDeque;
+use alloc::{boxed::Box, collections::VecDeque, vec::Vec};
 use core::{convert::TryFrom, mem};
 use std::collections::hash_map;
 
@@ -965,6 +965,8 @@ pub(super) fn get_or_insert_recv(
 
 #[cfg(test)]
 mod tests {
+    use alloc::vec;
+
     use super::*;
     use crate::{
         ReadableError, RecvStream, SendStream, TransportErrorCode, WriteError,

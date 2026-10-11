@@ -1,4 +1,4 @@
-use alloc::borrow::Cow;
+use alloc::{borrow::Cow, string::String};
 use core::{
     fmt::{self, Display},
     mem,
@@ -21,6 +21,8 @@ use crate::{
 #[cfg(feature = "qlog")]
 use super::connection::qlog::ToQlog;
 
+#[cfg(test)]
+use alloc::{vec, vec::Vec};
 #[cfg(test)]
 use crate::varint::varint_u64;
 #[cfg(test)]

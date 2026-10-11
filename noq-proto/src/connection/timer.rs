@@ -1,3 +1,6 @@
+#[cfg(test)]
+use alloc::vec::Vec;
+
 use identity_hash::{IdentityHashable, IntMap};
 
 use crate::{
@@ -426,6 +429,7 @@ impl TimerTable {
 
 #[cfg(test)]
 mod tests {
+    use alloc::vec;
     use core::time::Duration;
 
     use crate::connection::qlog::QlogSink;

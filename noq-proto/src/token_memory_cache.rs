@@ -153,7 +153,7 @@ impl CacheEntry {
 
 #[cfg(test)]
 mod tests {
-    use alloc::collections::VecDeque;
+    use alloc::{collections::VecDeque, string::ToString, vec, vec::Vec};
 
     use super::*;
     use rand::prelude::*;

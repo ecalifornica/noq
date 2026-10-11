@@ -1,3 +1,4 @@
+use alloc::vec::Vec;
 use core::{cmp::Ordering, ops::Range, str};
 use std::io;
 
@@ -1029,6 +1030,7 @@ mod tests {
         use crate::Side;
         use crate::crypto::rustls::{configured_provider, initial_keys, initial_suite_from_provider};
         use rustls::quic::Version;
+        use std::{print, println};
 
         let dcid = ConnectionId::new(&hex!("06b858ec6f80452b"));
         let provider = configured_provider();

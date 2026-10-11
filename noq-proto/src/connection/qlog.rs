@@ -11,7 +11,13 @@
 #![allow(unused_variables)]
 
 #[cfg(feature = "qlog")]
-use alloc::sync::Arc;
+use alloc::{
+    boxed::Box,
+    format,
+    string::{String, ToString},
+    sync::Arc,
+    vec,
+};
 #[cfg(not(feature = "qlog"))]
 use core::marker::PhantomData;
 use core::{

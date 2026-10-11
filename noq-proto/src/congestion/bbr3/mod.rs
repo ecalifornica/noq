@@ -1,7 +1,6 @@
 mod max_filter;
 
-use alloc::collections::VecDeque;
-use alloc::sync::Arc;
+use alloc::{boxed::Box, collections::VecDeque, sync::Arc};
 use core::any::Any;
 
 use rand::{RngExt, SeedableRng};
@@ -2050,6 +2049,8 @@ impl ControllerFactory for Bbr3Config {
 
 #[cfg(test)]
 mod test {
+    use alloc::{vec, vec::Vec};
+
     use super::*;
     use core::cell::Cell;
     use core::ops::ControlFlow;

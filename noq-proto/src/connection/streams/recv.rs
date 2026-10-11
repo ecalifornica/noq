@@ -1,3 +1,4 @@
+use alloc::boxed::Box;
 use core::mem;
 use std::collections::hash_map::Entry;
 

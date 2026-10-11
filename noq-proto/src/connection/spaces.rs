@@ -1,4 +1,8 @@
-use alloc::collections::{BTreeMap, BTreeSet, VecDeque};
+use alloc::{
+    boxed::Box,
+    collections::{BTreeMap, BTreeSet, VecDeque},
+    vec::Vec,
+};
 use core::{
     cmp, mem,
     ops::{Bound, Index, IndexMut},
@@ -1378,6 +1382,8 @@ const MAX_ACK_BLOCKS: usize = 64;
 
 #[cfg(test)]
 mod test {
+    use alloc::vec;
+
     use rand::Rng;
     use rand::seq::SliceRandom;
 

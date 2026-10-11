@@ -1,3 +1,4 @@
+use alloc::boxed::Box;
 use bytes::Bytes;
 use thiserror::Error;
 
@@ -319,6 +320,8 @@ pub enum FinishError {
 
 #[cfg(test)]
 mod tests {
+    use alloc::{borrow::ToOwned, vec::Vec};
+
     use super::*;
 
     #[test]

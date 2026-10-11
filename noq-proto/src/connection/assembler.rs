@@ -677,6 +677,8 @@ mod test {
 
 #[cfg(all(test, not(target_family = "wasm")))]
 mod proptests {
+    use alloc::{vec, vec::Vec};
+
     use proptest::prelude::*;
     use rand::RngExt;
     use test_strategy::{Arbitrary, proptest};

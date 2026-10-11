@@ -1,5 +1,6 @@
 use super::SpaceKind;
 use crate::{Instant, MAX_UDP_PAYLOAD, MtuDiscoveryConfig};
+use alloc::vec::Vec;
 use core::cmp;
 use tracing::trace;
 
@@ -526,6 +527,8 @@ const BLACK_HOLE_THRESHOLD: usize = 3;
 
 #[cfg(test)]
 mod tests {
+    use std::println;
+
     use super::*;
     use crate::Duration;
     use crate::MAX_UDP_PAYLOAD;

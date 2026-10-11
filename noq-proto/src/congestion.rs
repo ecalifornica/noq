@@ -2,7 +2,7 @@
 
 use crate::connection::RttEstimator;
 use crate::{Duration, Instant};
-use alloc::sync::Arc;
+use alloc::{boxed::Box, sync::Arc};
 use core::any::Any;
 
 mod bbr3;

@@ -1,5 +1,6 @@
 //! n0's (<https://n0.computer>) NAT Traversal protocol implementation.
 
+use alloc::vec::Vec;
 use core::{
     fmt::Display,
     net::{IpAddr, SocketAddr},
@@ -891,6 +892,8 @@ pub(crate) fn map_to_local_socket_family(address: IpAddr, ipv6: bool) -> Option<
 
 #[cfg(test)]
 mod tests {
+    use std::dbg;
+
     use testresult::TestResult;
 
     use super::*;
