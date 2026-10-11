@@ -17,6 +17,11 @@
 #![allow(clippy::too_many_arguments)]
 #![warn(unreachable_pub)]
 #![warn(clippy::use_self)]
+#![warn(
+    clippy::alloc_instead_of_core,
+    clippy::std_instead_of_alloc,
+    clippy::std_instead_of_core
+)]
 
 use core::{
     fmt,
