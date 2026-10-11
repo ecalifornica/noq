@@ -1,12 +1,18 @@
-use std::{
-    cmp,
-    collections::{BTreeMap, HashMap, HashSet, VecDeque},
-    io::{self, Write},
-    mem,
-    net::{IpAddr, Ipv4Addr, Ipv6Addr, SocketAddr, ToSocketAddrs},
+use alloc::{
+    collections::{BTreeMap, VecDeque},
+    sync::Arc,
+};
+use core::{
+    cmp, mem,
+    net::{IpAddr, Ipv4Addr, Ipv6Addr, SocketAddr},
     num::{NonZeroU32, NonZeroUsize},
     str,
-    sync::{Arc, LazyLock, Mutex},
+};
+use std::{
+    collections::{HashMap, HashSet},
+    io::{self, Write},
+    net::ToSocketAddrs,
+    sync::{LazyLock, Mutex},
 };
 
 use assert_matches::assert_matches;
@@ -1258,7 +1264,7 @@ impl InboundQueue {
     }
 }
 
-impl std::ops::Index<usize> for InboundQueue {
+impl core::ops::Index<usize> for InboundQueue {
     type Output = Inbound;
     fn index(&self, index: usize) -> &Inbound {
         self.inner
@@ -1483,14 +1489,14 @@ impl TestEndpoint {
     }
 }
 
-impl ::std::ops::Deref for TestEndpoint {
+impl core::ops::Deref for TestEndpoint {
     type Target = Endpoint;
     fn deref(&self) -> &Endpoint {
         &self.endpoint
     }
 }
 
-impl ::std::ops::DerefMut for TestEndpoint {
+impl core::ops::DerefMut for TestEndpoint {
     fn deref_mut(&mut self) -> &mut Endpoint {
         &mut self.endpoint
     }

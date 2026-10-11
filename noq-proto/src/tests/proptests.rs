@@ -1,6 +1,6 @@
-use std::{
+use alloc::sync::Arc;
+use core::{
     net::{IpAddr, Ipv4Addr, SocketAddr},
-    sync::Arc,
     time::Duration,
 };
 
