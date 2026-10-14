@@ -12,22 +12,21 @@
 //! related `Connection`. `Connection` types contain the bulk of the protocol logic related to
 //! managing a single connection and all the related state (such as streams).
 
-#![no_std]
 #![cfg_attr(not(fuzzing), warn(missing_docs))]
 // Fixes welcome:
 #![allow(clippy::too_many_arguments)]
 #![warn(unreachable_pub)]
 #![warn(clippy::use_self)]
+// The crate does not (yet) support no_std, this setup however allows us to work
+// with the `core::prelude` while still linking alloc and std. This forces all
+// non-core imports to be explicit rather than rely on the std prelude.
+#![no_std]
 #![warn(
     clippy::alloc_instead_of_core,
     clippy::std_instead_of_alloc,
     clippy::std_instead_of_core
 )]
-
 extern crate alloc;
-// This `extern crate` plus the `#![no_std]` attribute changes the default prelude from
-// `std::prelude` to `core::prelude`. That forces one to _explicitly_ import everything that is in
-// `std::prelude` but not in `core::prelude`. The crate still links `std`.
 extern crate std;
 
 use core::{
