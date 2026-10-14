@@ -953,7 +953,7 @@ impl Endpoint {
         self.all_incoming_buffers_total_bytes
     }
 
-    #[cfg(test)]
+    #[cfg(all(test, feature = "rustls", any(feature = "aws-lc-rs", feature = "ring")))]
     pub(crate) fn known_connections(&self) -> usize {
         let x = self.connections.len();
         debug_assert_eq!(x, self.index.connection_ids_initial.len());
@@ -965,7 +965,7 @@ impl Endpoint {
         x
     }
 
-    #[cfg(test)]
+    #[cfg(all(test, feature = "rustls", any(feature = "aws-lc-rs", feature = "ring")))]
     pub(crate) fn known_cids(&self) -> usize {
         self.index.connection_ids.len()
     }
