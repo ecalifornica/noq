@@ -5,18 +5,17 @@ use core::{
     net::{IpAddr, SocketAddr},
     ops::{Index, IndexMut},
 };
-use std::collections::{HashMap, hash_map};
+use std::collections::hash_map;
 
 use bytes::{Buf, BufMut, Bytes, BytesMut};
 use rand::{Rng, RngExt, SeedableRng, rngs::StdRng};
-use rustc_hash::FxHashMap;
 use slab::Slab;
 use thiserror::Error;
 use tracing::{debug, error, trace, warn};
 
 use crate::{
-    Duration, FourTuple, INITIAL_MTU, Instant, MAX_CID_SIZE, MIN_INITIAL_SIZE, PathId,
-    RESET_TOKEN_SIZE, ResetToken, Side, Transmit, TransportConfig, TransportError,
+    Duration, FourTuple, FxHashMap, HashMap, INITIAL_MTU, Instant, MAX_CID_SIZE, MIN_INITIAL_SIZE,
+    PathId, RESET_TOKEN_SIZE, ResetToken, Side, Transmit, TransportConfig, TransportError,
     cid_generator::ConnectionIdGenerator,
     coding::{BufMutExt, Decodable, Encodable, UnexpectedEnd},
     config::{ClientConfig, EndpointConfig, ServerConfig},

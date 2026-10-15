@@ -1,16 +1,13 @@
 //! Storing tokens sent from servers in NEW_TOKEN frames and using them in subsequent connections
 
 use alloc::{collections::VecDeque, sync::Arc};
-use std::{
-    collections::{HashMap, hash_map},
-    sync::Mutex,
-};
+use std::{collections::hash_map, sync::Mutex};
 
 use bytes::Bytes;
 use lru_slab::LruSlab;
 use tracing::trace;
 
-use crate::token::TokenStore;
+use crate::{HashMap, token::TokenStore};
 
 /// `TokenStore` implementation that stores up to `N` tokens per server name for up to a
 /// limited number of server names, in-memory
