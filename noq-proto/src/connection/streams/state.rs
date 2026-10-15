@@ -1,6 +1,5 @@
 use alloc::{boxed::Box, collections::VecDeque, vec::Vec};
 use core::{convert::TryFrom, mem};
-use std::collections::hash_map;
 
 use tracing::{debug, trace};
 
@@ -12,6 +11,7 @@ use crate::{
     Dir, FxHashMap, MAX_STREAM_COUNT, Side, StreamId, TransportError, VarInt,
     connection::{PacketBuilder, stats::FrameStats},
     frame::{self, FrameStruct},
+    hash_map,
     transport_parameters::TransportParameters,
 };
 

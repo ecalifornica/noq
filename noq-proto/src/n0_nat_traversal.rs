@@ -6,7 +6,6 @@ use core::{
     net::{IpAddr, SocketAddr},
     time::Duration,
 };
-use std::collections::hash_map::Entry;
 
 use tracing::{debug, trace};
 
@@ -14,6 +13,7 @@ use crate::{
     FourTuple, FxHashMap, FxHashSet, Side, VarInt,
     connection::spaces::PendingReachOutFrames,
     frame::{AddAddress, ReachOut, RemoveAddress},
+    hash_map::Entry,
 };
 
 /// Maximum number of times we send a NAT probe to the same remote address in a round.

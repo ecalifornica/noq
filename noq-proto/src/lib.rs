@@ -139,6 +139,10 @@ pub(crate) type FxHashMap<K, V> = rustc_hash::FxHashMap<K, V>;
 pub(crate) type FxHashSet<T> = rustc_hash::FxHashSet<T>;
 #[allow(clippy::disallowed_types)]
 pub(crate) type IntMap<K, V> = identity_hash::IntMap<K, V>;
+pub(crate) mod hash_map {
+    #[allow(clippy::disallowed_types)]
+    pub(crate) type Entry<'a, K, V> = std::collections::hash_map::Entry<'a, K, V>;
+}
 
 #[cfg(feature = "bench")]
 pub mod bench_exports {
