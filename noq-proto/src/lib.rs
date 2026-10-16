@@ -129,16 +129,16 @@ pub(crate) use std::time::{Instant, SystemTime, UNIX_EPOCH};
 pub(crate) use web_time::{Instant, SystemTime, UNIX_EPOCH};
 
 // Deal with hash maps
-#[allow(clippy::disallowed_types)]
+#[expect(clippy::disallowed_types)]
 pub(crate) type HashMap<K, V, S = std::hash::RandomState> = std::collections::HashMap<K, V, S>;
 #[cfg(any(test, feature = "bloom"))]
-#[allow(clippy::disallowed_types)]
+#[expect(clippy::disallowed_types)]
 pub(crate) type HashSet<T, S = std::hash::RandomState> = std::collections::HashSet<T, S>;
-#[allow(clippy::disallowed_types)]
+#[expect(clippy::disallowed_types)]
 pub(crate) type FxHashMap<K, V> = rustc_hash::FxHashMap<K, V>;
-#[allow(clippy::disallowed_types)]
+#[expect(clippy::disallowed_types)]
 pub(crate) type FxHashSet<T> = rustc_hash::FxHashSet<T>;
-#[allow(clippy::disallowed_types)]
+#[expect(clippy::disallowed_types)]
 pub(crate) type IntMap<K, V> = identity_hash::IntMap<K, V>;
 pub(crate) mod hash_map {
     #[allow(clippy::disallowed_types)]
