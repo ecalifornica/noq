@@ -130,15 +130,15 @@ pub(crate) use web_time::{Instant, SystemTime, UNIX_EPOCH};
 
 // Deal with float math
 pub(crate) mod math {
-    #[allow(clippy::disallowed_methods)]
+    #[expect(clippy::disallowed_methods)]
     pub(crate) fn round(x: f64) -> f64 {
         x.round()
     }
-    #[allow(clippy::disallowed_methods)]
+    #[expect(clippy::disallowed_methods)]
     pub(crate) fn cbrt(x: f64) -> f64 {
         x.cbrt()
     }
-    #[allow(clippy::disallowed_methods)]
+    #[expect(clippy::disallowed_methods)]
     pub(crate) fn powi(x: f64, n: i32) -> f64 {
         x.powi(n)
     }
