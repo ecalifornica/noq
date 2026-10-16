@@ -141,7 +141,7 @@ pub(crate) type FxHashSet<T> = rustc_hash::FxHashSet<T>;
 #[expect(clippy::disallowed_types)]
 pub(crate) type IntMap<K, V> = identity_hash::IntMap<K, V>;
 pub(crate) mod hash_map {
-    #[allow(clippy::disallowed_types)]
+    #[expect(clippy::disallowed_types)]
     pub(crate) type Entry<'a, K, V> = std::collections::hash_map::Entry<'a, K, V>;
 }
 
