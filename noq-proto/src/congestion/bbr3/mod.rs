@@ -1863,7 +1863,8 @@ impl Bbr3 {
             ssthresh: None,
             pacing_rate: Some(math::round(self.pacing_rate) as u64),
             send_quantum: Some(self.send_quantum),
-            bandwidth_estimate: (self.max_bw > 0.0).then_some((self.max_bw * 8.0).round() as u64),
+            bandwidth_estimate: (self.max_bw > 0.0)
+                .then_some(math::round(self.max_bw * 8.0) as u64),
         }
     }
 
